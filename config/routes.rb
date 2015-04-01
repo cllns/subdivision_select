@@ -1,3 +1,3 @@
 SubdivisionSelect::Engine.routes.draw do
-  get "subdivisions/get"
+  get "/", to: "subdivisions#get"
 end
