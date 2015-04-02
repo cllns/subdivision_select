@@ -24,10 +24,13 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 4.1.0"
   s.add_dependency "country_select", "~> 2.0"
 
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "sqlite3" # Not used but we need an AR adapter
 
   s.add_development_dependency "rspec-rails", "~> 3.2.0"
   s.add_development_dependency "factory_girl_rails", "~> 4.5.0"
 
+  # jQuery is required for all uses, but regular users can get it another way.
+  # We say dev needs it so that our test_app has it for us
   s.add_development_dependency "jquery-rails"
+
 end
