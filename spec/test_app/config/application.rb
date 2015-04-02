@@ -33,6 +33,6 @@ module TestApp
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     # Only for Rails 4.2
-    #config.active_record.raise_in_transactional_callbacks = true
+    # config.active_record.raise_in_transactional_callbacks = true
   end
 end

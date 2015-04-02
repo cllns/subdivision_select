@@ -12,3 +12,4 @@
 //
 //= require_tree .
 //= require jquery
+//= require subdivision_select/subdivisions

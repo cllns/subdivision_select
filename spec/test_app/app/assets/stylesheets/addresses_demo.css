@@ -1,0 +1,15 @@
+body,
+select {
+  font-size: 20px;
+}
+
+form {
+  border-radius: 0.5em;
+  background: #eee;
+  padding: 0.5em;
+  max-width: 500px;
+}
+
+.field {
+  margin: 1em 0;
+}

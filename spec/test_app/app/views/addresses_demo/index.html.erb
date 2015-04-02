@@ -1,0 +1,20 @@
+<h1>Addresses Demo</h1>
+
+<%= form_for :address do |f| %>
+
+  <div class="field">
+    <%= f.label(:country) %><br />
+    <%= f.country_select(:country, selected: "IE") %>
+  </div>
+
+  <div class="field">
+    <%= f.label("State / Province") %><br />
+    <%=
+      f.select(
+        :subdivision,
+        SubdivisionSelect::SubdivisionsHelper::get_subdivisions_for_select("IE")
+      )
+    %>
+  </div>
+
+<% end %>
