@@ -1,5 +1,3 @@
-require "countries"
-
 module SubdivisionSelect
   module SubdivisionsHelper
     def self.get_subdivisions(alpha2)
