@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "README.rdoc"
   ]
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", "~> 4.1.0"
   s.add_dependency "country_select", "~> 2.0"
