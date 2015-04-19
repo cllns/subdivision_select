@@ -1,20 +1,36 @@
 <h1>Addresses Demo</h1>
 
-<%= form_for :address do |f| %>
+<%=
+  render(
+    partial: "form",
+    locals: {
+      name: "Basic",
+      country_options: { include_blank: true }
+    }
+  )
+%>
 
-  <div class="field">
-    <%= f.label(:country) %><br />
-    <%= f.country_select(:country, selected: "IE") %>
-  </div>
+<%=
+  render(
+    partial: "form",
+    locals: {
+      name: "Pre-populated values for Ireland",
+      country_options: { selected: "IE" },
+      subdivision_values: SubdivisionSelect::SubdivisionsHelper::get_subdivisions_for_select("IE")
+    }
+  )
+%>
 
-  <div class="field">
-    <%= f.label("State / Province") %><br />
-    <%=
-      f.select(
-        :subdivision,
-        SubdivisionSelect::SubdivisionsHelper::get_subdivisions_for_select("IE")
-      )
-    %>
-  </div>
+<%=
+  render(
+    partial: "form",
+    locals: {
+      name: "Pre-populated values for Ireland",
+      note: "and include_blank for subdivisions",
+      country_options: { selected: "IE" },
+      subdivision_values: SubdivisionSelect::SubdivisionsHelper::get_subdivisions_for_select("IE"),
+      subdivision_options: { include_blank: true }
+    }
+  )
+%>
 
-<% end %>

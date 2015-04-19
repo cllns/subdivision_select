@@ -3,11 +3,26 @@ select {
   font-size: 20px;
 }
 
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
 form {
-  border-radius: 0.5em;
+  border-radius: 0.25em;
   background: #eee;
   padding: 0.5em;
-  max-width: 500px;
+  margin: 2em 0;
+}
+
+
+select {
+  max-width: 100%;
 }
 
 .field {
