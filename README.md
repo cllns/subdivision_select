@@ -23,13 +23,6 @@ License
 MIT
 
 
-To Do
----
-1. Allow more than one per page (requires re-doing the JS properly)
-2. Fix issue where clicking subdivision_select triggers ajax for some reason
-   (above may incidentally fix this)
-
-
 Contributing
 ---
 Please open a new Github Issue for any problems you have with the gem. Bugs
