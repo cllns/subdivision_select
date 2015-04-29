@@ -3,18 +3,16 @@
   - name
   - note (optional)
   - country_options (optional)
-  - subdivision_values (optional)
   - subdivision_options (optional)
 %>
 
 <%
     note ||= ""
     country_options ||= {}
-    subdivision_values ||= []
     subdivision_options ||= {}
 %>
 
-<%= form_for "address_#{name.parameterize}" do |f| %>
+<%= form_for("#{name.parameterize}_address") do |f| %>
   <h2> <%= name %> </h2>
   <h4> <%= note %> </h4>
 
@@ -24,13 +22,7 @@
   </div>
 
   <div class="field">
-    <%= f.label("State / Province") %><br />
-    <%=
-      f.select(
-        :subdivision,
-        subdivision_values,
-        subdivision_options
-      )
-    %>
+    <%= f.label(:subdivision, "State / Province") %><br />
+    <%= f.subdivision_select(:subdivision, country_options[:selected], subdivision_options) %>
   </div>
 <% end %>

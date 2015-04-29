@@ -14,9 +14,8 @@
   render(
     partial: "form",
     locals: {
-      name: "Pre-populated values for Ireland",
-      country_options: { selected: "IE" },
-      subdivision_values: SubdivisionSelect::SubdivisionsHelper::get_subdivisions_for_select("IE")
+      name: "Prepopulated for Ireland",
+      country_options: { selected: "IE" }
     }
   )
 %>
@@ -25,12 +24,9 @@
   render(
     partial: "form",
     locals: {
-      name: "Pre-populated values for Ireland",
-      note: "and include_blank for subdivisions",
+      name: "Prepopulated for Ireland (Include Blank)",
       country_options: { selected: "IE" },
-      subdivision_values: SubdivisionSelect::SubdivisionsHelper::get_subdivisions_for_select("IE"),
-      subdivision_options: { include_blank: true }
+      subdivision_options: {include_blank: true}
     }
   )
 %>
-

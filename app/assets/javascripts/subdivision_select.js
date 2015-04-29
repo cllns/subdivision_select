@@ -6,7 +6,7 @@ var SubdivisionSelect = (function() {
       find(SubdivisionSelect.subdivisionSelector);
   };
 
-  SubdivisionSelect.subdivisionSelector = "select[id$=subdivision]";
+  SubdivisionSelect.subdivisionSelector = "select.subdivision-selector";
   SubdivisionSelect.countrySelector = "select[id$=country]";
 
   SubdivisionSelect.init = function () {
