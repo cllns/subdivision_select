@@ -21,15 +21,15 @@ Gem::Specification.new do |s|
   ]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "rails", "~> 4.1.0"
+  s.add_dependency "rails", "~> 4.1"
   s.add_dependency "country_select", "~> 2.0"
-  s.add_dependency "jquery-rails"
+  s.add_dependency "jquery-rails", ">= 3.0"
 
-  s.add_development_dependency "sqlite3" # Not used but we need an AR adapter
+  s.add_development_dependency "sqlite3", "~> 1.3" # Not used but we need an AR adapter
 
-  s.add_development_dependency "rspec-rails", "~> 3.2.0"
-  s.add_development_dependency "factory_girl_rails", "~> 4.5.0"
+  s.add_development_dependency "rspec-rails", "~> 3.2"
+  s.add_development_dependency "factory_girl_rails", "~> 4.5"
 
-  s.add_development_dependency "capybara"
-  s.add_development_dependency "selenium-webdriver"
+  s.add_development_dependency "capybara", "~> 2.4"
+  s.add_development_dependency "selenium-webdriver", "~> 2.45"
 end
