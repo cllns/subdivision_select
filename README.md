@@ -1,9 +1,11 @@
 Subdivision Select
 ===
 
-**subdivision_select** is a Rails plugin that builds upon the **country_select** gem.
+**subdivision_select** is a Rails plugin that extends the functionality of the [**country_select**](https://github.com/stefanpenner/country_select) gem.
+
 When you select a country,
-a select box for the states or provinces (i.e. subdivisions) is automatically populated, for that country.
+a select box for the states or provinces (i.e. subdivisions) is automatically populated for that country.
+
 It loads them via AJAX,
 but this plugin doesn't require you to write any javascript.
 
@@ -15,7 +17,7 @@ This plugin is called **subdivision_select** but it could have been called
 
 The terminology comes from [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2).
 
-This data is provided by the `countries` gem.
+The data is provided by the `countries` gem.
 
 Example
 ---
@@ -48,14 +50,13 @@ This is the next feature planned.
 
 Installation
 ---
-1. Add the following to your `Gemfile`:
+1) Add the following to your `Gemfile`:
 
 ```
 gem "subdivision_select"
 ```
 
-
-2. Add the following to your `config/routes.rb`:
+2) Add the following to your `config/routes.rb`:
 
 ```
  mount SubdivisionSelect::Engine, at: 'subdivisions'
@@ -63,7 +64,7 @@ gem "subdivision_select"
 (the 'subdivisions' part is necessary, since that path is hardcoded in JS)
 
 
-3. Add the following to `application.js` (or whatever your JS digest file is called)
+3) Add the following to `application.js` (or whatever your JS digest file is called)
 
 ```
 //= require subdivision_select
