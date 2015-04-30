@@ -49,11 +49,26 @@ This is the next feature planned.
 
 Installation
 ---
-1. Add `gem "subdivision_select" to your Gemfile.
-2. Add route
-3. Add JS file
-4. Add form helpers
+1. Add the following to your `Gemfile`:
 
+```
+gem "subdivision_select"
+```
+
+
+2. Add the following to your `config/routes.rb`:
+
+```
+ mount SubdivisionSelect::Engine, at: 'subdivisions'
+```
+(the 'subdivisions' part is necessary, since that path is hardcode in JS)
+
+
+3. Add the following to `application.js` (or whatever your JS digest file is called)
+
+```
+//= require subdivision_select
+```
 
 License
 ---
