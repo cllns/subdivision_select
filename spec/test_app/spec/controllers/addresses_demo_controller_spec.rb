@@ -11,8 +11,9 @@ RSpec.describe AddressesDemoController, type: :controller do
   describe "PATCH #update" do
     it "returns http success" do
       @address = create(:address)
-      post :patch, subdivision: "AB", country: "CD"
-      expect(response).to have_http_status(:success)
+      patch :update, id: @address.id, address: { subdivision: "D", country: "IE" }
+      expect(assigns(:address).country).to eq("IE")
+      expect(assigns(:address).subdivision).to eq("D")
     end
   end
 end
