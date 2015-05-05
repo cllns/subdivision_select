@@ -10,6 +10,8 @@ module ActionView
           country = country_or_options
         end
 
+        options.merge!({ object: @object })
+
         # Add class (that JS uses)
         if html_options["class"].present?
           html_options["class"] += " subdivision-selector"
@@ -17,7 +19,7 @@ module ActionView
           html_options["class"] = "subdivision-selector"
         end
 
-        Tags::Select.new(
+        subdivision_select_hidden_field(method).render + Tags::Select.new(
           @object_name,
           method,
           @template,
@@ -25,6 +27,22 @@ module ActionView
           options,
           html_options
         ).render
+      end
+
+      private
+
+      # We want to add a hidden field, so that when this select is disabled
+      # (which happens when a country have no subdivisions), we still POST this
+      # value, as blank. Otherwise we'd keep the old value.
+      # NOTE: it has to come *before* the actual select, so that its value
+      # can be overridden by the select
+      def subdivision_select_hidden_field(method)
+        Tags::HiddenField.new(
+          @object_name,
+          method,
+          @template,
+          value: ""
+        )
       end
     end
   end
