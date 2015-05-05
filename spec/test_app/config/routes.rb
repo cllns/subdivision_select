@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "addresses_demo/index"
+  patch ":id", to: "addresses_demo#update", as: "update_address"
 
   root "addresses_demo#index"
 

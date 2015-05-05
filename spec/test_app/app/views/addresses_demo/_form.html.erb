@@ -1,28 +1,26 @@
-<%#
-  This partial takes 1-5 local variables
-  - name
-  - note (optional)
-  - country_options (optional)
-  - subdivision_options (optional)
-%>
+<%=
+  form_for(
+    address,
+    url: update_address_path(address.id),
+    html: {class: address.title.parameterize}
+  ) do |f| %>
 
-<%
-    note ||= ""
-    country_options ||= {}
-    subdivision_options ||= {}
-%>
-
-<%= form_for("#{name.parameterize}_address", html: {class: name.parameterize} ) do |f| %>
-  <h2> <%= name %> </h2>
-  <h4> <%= note %> </h4>
+  <div class="field">
+    <%= f.label(:title) %><br />
+    <%= f.text_field(:title) %>
+  </div>
 
   <div class="field">
     <%= f.label(:country) %><br />
-    <%= f.country_select(:country, country_options) %>
+    <%= f.country_select(:country, include_blank: true) %>
   </div>
 
   <div class="field">
     <%= f.label(:subdivision, "State / Province") %><br />
-    <%= f.subdivision_select(:subdivision, country_options[:selected], subdivision_options) %>
+    <%= f.subdivision_select(:subdivision, address.country, include_blank: true ) %>
+  </div>
+
+  <div class="field">
+    <%= f.submit %>
   </div>
 <% end %>

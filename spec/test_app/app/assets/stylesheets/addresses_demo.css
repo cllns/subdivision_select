@@ -1,5 +1,6 @@
 body,
-select {
+select,
+input {
   font-size: 20px;
 }
 

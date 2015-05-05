@@ -1,32 +1,12 @@
 <h1>Addresses Demo</h1>
 
-<%=
-  render(
-    partial: "form",
-    locals: {
-      name: "Basic",
-      country_options: { include_blank: true }
-    }
-  )
-%>
-
-<%=
-  render(
-    partial: "form",
-    locals: {
-      name: "Prepopulated for Ireland",
-      country_options: { selected: "IE" }
-    }
-  )
-%>
-
-<%=
-  render(
-    partial: "form",
-    locals: {
-      name: "Prepopulated for Ireland (Include Blank)",
-      country_options: { selected: "IE" },
-      subdivision_options: {include_blank: true}
-    }
-  )
-%>
+<% @addresses.each do |address| %>
+  <%=
+    render(
+      partial: "form",
+      locals: {
+        address: address,
+      }
+    )
+  %>
+<% end %>
