@@ -20,13 +20,12 @@ module ActionView
         Tags::Select.new(
           @object_name,
           method,
-          self,
+          @template,
           SubdivisionSelect::SubdivisionsHelper::get_subdivisions_for_select(country),
           options,
           html_options
         ).render
       end
     end
-
   end
 end
