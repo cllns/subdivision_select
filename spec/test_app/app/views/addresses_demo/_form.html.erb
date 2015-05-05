@@ -12,7 +12,7 @@
     subdivision_options ||= {}
 %>
 
-<%= form_for("#{name.parameterize}_address") do |f| %>
+<%= form_for("#{name.parameterize}_address", html: {class: name.parameterize} ) do |f| %>
   <h2> <%= name %> </h2>
   <h4> <%= note %> </h4>
 
