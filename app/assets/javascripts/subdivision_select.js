@@ -1,13 +1,13 @@
 var SubdivisionSelect = (function() {
+  SubdivisionSelect.subdivisionSelector = "select[data-subdivision-selector]";
+  SubdivisionSelect.countrySelector = "select[id$=country]";
+
   function SubdivisionSelect(element) {
     this._countrySelect = element;
     this._subdivisionSelect = $(element).
       closest("form").
       find(SubdivisionSelect.subdivisionSelector);
   };
-
-  SubdivisionSelect.subdivisionSelector = "select.subdivision-selector";
-  SubdivisionSelect.countrySelector = "select[id$=country]";
 
   SubdivisionSelect.init = function () {
     var klass = this;
@@ -19,6 +19,7 @@ var SubdivisionSelect = (function() {
 
   SubdivisionSelect.prototype.init = function() {
     var self = this;
+    self._enabledInputsBeforeSubmit();
 
     $(this._countrySelect).change(function() {
       $.ajax( {
@@ -46,6 +47,14 @@ var SubdivisionSelect = (function() {
     if (isEmpty) {
       self._subdivisionSelect.append($("<option></option>").text("none"));
     }
+  };
+
+  // Disabling selects means they won't POST with the form.
+  // Solution: right before submiting a form, enabled them.
+  SubdivisionSelect.prototype._enabledInputsBeforeSubmit = function() {
+    $('form').bind('submit', function() {
+      $(this).find('select').removeAttr('disabled');
+    });
   };
 
   // Not only empty the select, but:

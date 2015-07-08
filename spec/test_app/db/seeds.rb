@@ -1,3 +1,5 @@
+Address.destroy_all
+
 Address.create!(
   title: "Empty"
 )

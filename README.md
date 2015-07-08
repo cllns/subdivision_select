@@ -30,7 +30,7 @@ Example
 
   <div class="field">
     <%= f.label :subdivision, "State / Province" %>
-    <%= f.subdivision_select :subdivision %>
+    <%= f.subdivision_select :subdivision, @address.country %>
   </div>
 
   <%= f.submit %>
@@ -38,15 +38,17 @@ Example
 
 ```
 
+You can also use `subdivision_select_tag`,
+if using
+[FormTagHelpers](http://api.rubyonrails.org/classes/ActionView/Helpers/FormTagHelper.html).
+
 This plugin makes no assumptions about what you call the subdivision select,
 so if you already named your column 'state' or 'province',
 you can use that instead.
-(The Javascript targets a class added via the subdivision_select helper)
 
 Currently,
 this plugin assumes your country column is named `country`,
 and doesn't provide anyway to override that.
-This is the next feature planned.
 
 Installation
 ---
@@ -70,6 +72,17 @@ gem "subdivision_select"
 //= require subdivision_select
 ```
 
+Development and Testing
+---
+If you want to work on this gem, fork and clone the repo.
+We use RSpec and Capybara.
+
+There is a 'dummy app' in `spec/test_app` you can use for testing.
+
+If you add a feature,
+please add a feature spec for it,
+using Capybara.
+
 License
 ---
 MIT
@@ -80,4 +93,4 @@ Contributing
 Please open a new Github Issue for any problems you have with the gem.
 Bugs reports and feature requests are always welcome,
 but I'm also willing to do tech support
-or ways you think the code quality can be improved.
+or take suggestions on ways you think the code quality can be improved.

@@ -6,6 +6,10 @@ class AddressesDemoController < ApplicationController
     @addresses = Address.all
   end
 
+  def tags
+    @addresses = Address.all
+  end
+
   def update
     @address = Address.find(params[:id])
 

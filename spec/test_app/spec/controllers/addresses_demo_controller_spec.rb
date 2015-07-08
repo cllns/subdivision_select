@@ -8,6 +8,13 @@ RSpec.describe AddressesDemoController, type: :controller do
     end
   end
 
+  describe "GET #tags" do
+    it "returns http success" do
+      get :tags
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe "PATCH #update" do
     it "returns http success" do
       @address = create(:address)

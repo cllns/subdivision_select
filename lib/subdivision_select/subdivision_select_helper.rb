@@ -7,42 +7,49 @@ module ActionView
           html_options = options
           options = country_or_options
         else
-          country = country_or_options
+          options[:country] = country_or_options
         end
 
-        options.merge!({ object: @object })
+        # I think this is taken care of in the merge below?
+        #options.merge!({ object: @object })
 
-        # Add class (that JS uses)
-        if html_options["class"].present?
-          html_options["class"] += " subdivision-selector"
-        else
-          html_options["class"] = "subdivision-selector"
-        end
-
-        subdivision_select_hidden_field(method).render + Tags::Select.new(
+        @template.subdivision_select_tag(
           @object_name,
           method,
-          @template,
-          SubdivisionSelect::SubdivisionsHelper::get_subdivisions_for_select(country),
+          objectify_options(options),
+          @default_options.merge(html_options)
+        )
+      end
+    end
+
+    module FormOptionsHelper
+      def subdivision_select_tag(object, method, options = {}, html_options = {})
+        Tags::SubdivisionSelect.new(
+          object,
+          method,
+          self,
           options,
           html_options
         ).render
       end
+    end
 
-      private
+    module Tags
+      # TODO: can we inherit from Select?
+      class SubdivisionSelect < Base
+        include ::SubdivisionSelect::TagHelper
 
-      # We want to add a hidden field, so that when this select is disabled
-      # (which happens when a country have no subdivisions), we still POST this
-      # value, as blank. Otherwise we'd keep the old value.
-      # NOTE: it has to come *before* the actual select, so that its value
-      # can be overridden by the select
-      def subdivision_select_hidden_field(method)
-        Tags::HiddenField.new(
-          @object_name,
-          method,
-          @template,
-          value: ""
-        )
+        def initialize(object_name, method_name, template_object, options, html_options)
+          @html_options = html_options
+          # Add data attribue, for selecting via JS
+          @html_options["data-subdivision-selector"] = "1"
+
+          super(object_name, method_name, template_object, options)
+        end
+
+        def render
+          select_content_tag(subdivision_option_tags, @options, @html_options)
+        end
       end
     end
   end

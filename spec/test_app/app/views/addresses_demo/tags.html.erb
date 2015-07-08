@@ -1,0 +1,39 @@
+<h1>Demo, using tag helpers</h1>
+
+<% @addresses.each do |address| %>
+  <%= form_tag(update_address_path(address), method: :patch) do %>
+    <div class="field">
+      <%= label_tag(:title) %><br />
+      <%= text_field_tag("address[title]", address.title) %>
+    </div>
+
+    <div class="field">
+      <%= label_tag("address[country]", "Country") %><br />
+      <%=
+        country_select(
+          :address,
+          :country,
+          selected: address.country,
+          include_blank: true
+        )
+      %>
+    </div>
+
+    <div class="field">
+      <%= label_tag("address[subdivision]", "State / Province") %><br />
+      <%=
+        subdivision_select_tag(
+          :address,
+          :subdivision,
+          country: address.country,
+          selected: address.subdivision,
+          include_blank: true
+        )
+      %>
+    </div>
+
+    <div class="field">
+      <%= submit_tag("Update Address") %>
+    </div>
+  <% end %>
+<% end %>
