@@ -9,6 +9,7 @@ a select box for the states or provinces (i.e. subdivisions) is automatically po
 It loads them via AJAX,
 but this plugin doesn't require you to write any javascript.
 
+![Subdivision Select Animated GIF Demo](/demo.gif)
 
 Terminology
 ---
