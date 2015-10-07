@@ -6,10 +6,10 @@ module SubdivisionSelect
       # and the value is a hash with two key/values:
       # - "name" is the most popular/most correct name
       # - "names" is an array of all the names
-      if Country[alpha2].nil?
+      if ISO3166::Country[alpha2].nil?
         {}
       else
-        Country[alpha2].subdivisions.map { |k, v| [k, v["name"]] }.to_h
+        ISO3166::Country[alpha2].subdivisions.map { |k, v| [k, v["name"]] }.to_h
       end
     end
 
