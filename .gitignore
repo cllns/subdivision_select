@@ -1,11 +1,11 @@
 .bundle/
 log/*.log
 pkg/
-spec/test_app/db/*.sqlite3
-spec/test_app/db/*.sqlite3-journal
-spec/test_app/log/*.log
-spec/test_app/tmp/
-spec/test_app/.sass-cache
+spec/dummy/db/*.sqlite3
+spec/dummy/db/*.sqlite3-journal
+spec/dummy/log/*.log
+spec/dummy/tmp/
+spec/dummy/.sass-cache
 
 # http://yehudakatz.com/2010/12/16/clarifying-the-roles-of-the-gemspec-and-gemfile/
 Gemfile.lock

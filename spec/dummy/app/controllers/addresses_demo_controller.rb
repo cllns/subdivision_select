@@ -1,4 +1,4 @@
-# Not auto loaded because we don't have a Gemfile for a test_app
+# Not auto loaded because we don't have a Gemfile for this dummy app
 require "country_select"
 
 class AddressesDemoController < ApplicationController

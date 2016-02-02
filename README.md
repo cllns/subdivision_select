@@ -78,7 +78,7 @@ Development and Testing
 If you want to work on this gem, fork and clone the repo.
 We use RSpec and Capybara.
 
-There is a 'dummy app' in `spec/test_app` you can use for testing.
+There is a 'dummy app' in `spec/dummy` you can use for testing.
 
 If you add a feature,
 please add a feature spec for it,
