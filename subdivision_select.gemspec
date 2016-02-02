@@ -33,5 +33,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "database_cleaner"
 
   s.add_development_dependency "capybara", "~> 2.4"
-  s.add_development_dependency "selenium-webdriver", "~> 2.45"
+  s.add_development_dependency "poltergeist", "~> 1.8"
 end
