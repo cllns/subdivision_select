@@ -28,10 +28,12 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "sqlite3", "~> 1.3" # Not used but we need an AR adapter
 
-  s.add_development_dependency "rspec-rails", "~> 3.2"
+  s.add_development_dependency "rspec-rails", "~> 3.5"
   s.add_development_dependency "factory_girl_rails", "~> 4.5"
   s.add_development_dependency "database_cleaner"
 
   s.add_development_dependency "capybara", "~> 2.4"
   s.add_development_dependency "poltergeist", "~> 1.8"
+
+  s.add_development_dependency "rails-controller-testing", "~> 1.0"
 end

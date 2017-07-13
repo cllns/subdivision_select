@@ -43,6 +43,7 @@ module ActionView
           @html_options = html_options
           # Add data attribue, for selecting via JS
           @html_options["data-subdivision-selector"] = "1"
+          @html_options["data-country-selector"] = options.delete(:country_selector) if options.has_key?(:country_selector)
 
           super(object_name, method_name, template_object, options)
         end

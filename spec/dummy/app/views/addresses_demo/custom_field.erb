@@ -1,0 +1,40 @@
+<h1>Demo, using custom country field name (country_selector option)</h1>
+
+<% @addresses.each do |address| %>
+  <%= form_tag(update_address_path(address, is_custom: true), method: :patch) do %>
+    <div class="field">
+      <%= label_tag(:title) %><br />
+      <%= text_field_tag("address[title]", address.title) %>
+    </div>
+
+    <div class="field">
+      <%= label_tag("address[custom_field]", "Country") %><br />
+      <%=
+        country_select(
+          :address,
+          :custom_field,
+          selected: address.country,
+          include_blank: true
+        )
+      %>
+    </div>
+
+    <div class="field">
+      <%= label_tag("address[subdivision]", "State / Province") %><br />
+      <%=
+        subdivision_select_tag(
+          :address,
+          :subdivision,
+          country: address.country,
+          selected: address.subdivision,
+          include_blank: true,
+          country_selector: "#address_custom_field"
+        )
+      %>
+    </div>
+
+    <div class="field">
+      <%= submit_tag("Update Address") %>
+    </div>
+  <% end %>
+<% end %>
