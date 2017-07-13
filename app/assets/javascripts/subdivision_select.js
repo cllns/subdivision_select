@@ -21,15 +21,26 @@ var SubdivisionSelect = (function() {
     var self = this;
     self._enabledInputsBeforeSubmit();
 
-    $(this._countrySelect).change(function() {
+    self.country = this._countrySelect.val();
+    setInterval(poll, 500);
+    this._countrySelect.change(onChange);
+
+    function poll() {
+      if (self.country != self._countrySelect.val()) {
+        onChange();
+      }
+    }
+
+    function onChange() {
+      self.country = self._countrySelect.val();
       $.ajax( {
         url: "/subdivisions",
-        data: { country_code: $(this).val() }
-      }).success(function(newSubdivisions) {
+        data: { country_code: self.country }
+      }).done(function(newSubdivisions) {
         self._clearSubdivisionSelect();
         self._updateSubdivisionSelect(newSubdivisions);
       });
-    });
+    }
   };
 
   SubdivisionSelect.prototype._updateSubdivisionSelect = function(newSubdivisions) {
