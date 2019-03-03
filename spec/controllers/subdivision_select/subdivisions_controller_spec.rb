@@ -6,7 +6,7 @@ module SubdivisionSelect
 
     describe "GET #get" do
       it "returns http success in JSON, when correct param supplied" do
-        get :get, country_code: "IE"
+        get :get, params: {country_code: "IE"}
         expect(response).to have_http_status(:success)
         expect(response.content_type).to eq("application/json")
       end

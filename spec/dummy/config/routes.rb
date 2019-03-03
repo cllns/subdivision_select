@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root "addresses_demo#index"
   get "tags" => "addresses_demo#tags"
+  get "custom_field" => "addresses_demo#custom_field"
 
   mount SubdivisionSelect::Engine => "/subdivisions"
 end

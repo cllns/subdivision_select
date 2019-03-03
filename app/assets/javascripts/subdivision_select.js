@@ -3,16 +3,22 @@ var SubdivisionSelect = (function() {
   SubdivisionSelect.countrySelector = "select[id$=country]";
 
   function SubdivisionSelect(element) {
-    this._countrySelect = element;
-    this._subdivisionSelect = $(element).
-      closest("form").
-      find(SubdivisionSelect.subdivisionSelector);
-  };
+    this._subdivisionSelect = $(element);
+    var countrySelector = this._subdivisionSelect.data("country-selector");
+    if (countrySelector) {
+        this._countrySelect = $(countrySelector);
+    }
+    else {
+        this._countrySelect = this._subdivisionSelect
+            .closest("form")
+            .find(SubdivisionSelect.countrySelector);
+    }
+  }
 
   SubdivisionSelect.init = function () {
     var klass = this;
 
-    return $(klass.countrySelector).each(function() {
+    return $(klass.subdivisionSelector).each(function() {
       return new klass(this).init();
     });
   };
@@ -21,7 +27,7 @@ var SubdivisionSelect = (function() {
     var self = this;
     self._enabledInputsBeforeSubmit();
 
-    $(this._countrySelect).change(function() {
+    this._countrySelect.change(function() {
       $.ajax( {
         url: "/subdivisions",
         data: { country_code: $(this).val() }

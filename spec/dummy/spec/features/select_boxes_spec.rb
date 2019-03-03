@@ -5,7 +5,7 @@ feature "select boxes via FormBuilder and FormTagHelper" do
   end
 
   # The root URL is FormBuilder, and /tags is the FormTagHelper
-  URLS = "/", "/tags"
+  URLS = "/", "/tags", "/custom_field"
 
   URLS.each do |url|
     scenario "load page", js: true do
@@ -13,7 +13,7 @@ feature "select boxes via FormBuilder and FormTagHelper" do
       expect(page).to have_content "Demo"
 
       expect(page).to have_select(
-        "address_country",
+        "Country",
         with_options: ["United States", "India"]
       )
 
