@@ -9,15 +9,29 @@ module SubdivisionSelect
       if ISO3166::Country[alpha2].nil?
         {}
       else
-        ISO3166::Country[alpha2].subdivisions.map do |k, v|
+        subdivisions = ISO3166::Country[alpha2].subdivisions.map do |k, v|
           value = alpha2 == 'TW' ? v["translations"]["zh"] : v["name"]
 
           [
             k,
             value
           ]
-        end.to_h
+        end
+
+        alpha2 == 'TW' ? order_subdivisions(subdivisions) : subdivisions.to_h
       end
+    end
+
+    def self.order_subdivisions(subdivisions)
+      return subdivisions.to_h unless File.exists?(reference_source_path)
+
+      reference_order = YAML.load_file(reference_source_path)
+
+      subdivisions.sort_by { |e| [reference_order.index(e[0]), e] }.to_h
+    end
+
+    def self.reference_source_path
+      Rails.root.join('config', 'subdivisions_order.yml')
     end
 
     def self.get_subdivisions_for_select(alpha2)

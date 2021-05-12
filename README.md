@@ -73,6 +73,35 @@ gem "subdivision_select"
 //= require subdivision_select
 ```
 
+自訂台灣縣市順序
+---
+在 `config` 底下建立 `subdivisions_order.yml`
+
+```yml
+- TPE
+- NWT
+- TAO
+- TXG
+- TNN
+- KHH
+- KEE
+- HSZ
+- HSQ
+- MIA
+- NAN
+- CHA
+- YUN
+- CYQ
+- PIF
+- CYI
+- ILA
+- HUA
+- TTT
+- PEN
+- KIN
+- LIE
+```
+
 Development and Testing
 ---
 If you want to work on this gem, fork and clone the repo.
