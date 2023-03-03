@@ -29,7 +29,7 @@ module SubdivisionSelect
     end
 
     def self.order_subdivisions(subdivisions)
-      return subdivisions.to_h unless File.exists?(reference_source_path)
+      return subdivisions.to_h unless File.exist?(reference_source_path)
 
       reference_order = YAML.load_file(reference_source_path)
 
