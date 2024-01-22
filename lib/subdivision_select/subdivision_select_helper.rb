@@ -36,7 +36,7 @@ module ActionView
 
     module Tags
       # TODO: can we inherit from Select?
-      class SubdivisionSelect < Base
+      class SubdivisionSelect < Select
         include ::SubdivisionSelect::TagHelper
 
         def initialize(object_name, method_name, template_object, options, html_options)

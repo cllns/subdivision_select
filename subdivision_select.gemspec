@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   ]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "rails", ">= 4.1"
+  s.add_dependency "rails", ">= 7.1"
   s.add_dependency "country_select", "~> 4.0"
   s.add_dependency "countries", "~> 3.0"
   s.add_dependency "jquery-rails", ">= 3.0"
